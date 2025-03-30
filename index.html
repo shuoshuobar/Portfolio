@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yushuo's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+    :root {
+        /* Enhanced Morandi color palette with transparencies */
+        --primary-color: rgba(165, 177, 170, 0.95);     /* Morandi green */
+        --secondary-color: rgba(173, 157, 143, 0.9);    /* Morandi brown */
+        --accent-color: rgba(217, 192, 182, 0.95);      /* Morandi pink */
+        --light-gray: rgba(228, 217, 207, 0.9);         /* Morandi beige */
+        --off-white: rgba(245, 241, 237, 0.95);         /* Softer off-white */
+        --white: #ffffff;
+        --text-color: rgba(92, 83, 75, 0.9);            /* Warmer text color */
+        --accent-secondary: rgba(160, 178, 194, 0.95);  /* Morandi blue */
+        
+        /* Additional colors */
+        --accent-terracotta: rgba(188, 143, 143, 0.9);  /* Terracotta */
+        --accent-sage: rgba(150, 175, 155, 0.9);        /* Sage green */
+        --accent-lavender: rgba(180, 170, 190, 0.9);    /* Lavender */
+        --accent-mustard: rgba(205, 190, 120, 0.9);     /* Mustard */
+        --accent-dusty-blue: rgba(145, 170, 190, 0.9);  /* Dusty blue */
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Quicksand', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--off-white);
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--accent-color);
+    }
+    
+    /* Header Styles */
+    header {
+        padding: 2rem 1rem;
+        background-color: var(--white);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        font-family: 'Nunito', sans-serif;
+        letter-spacing: 1px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .logo:after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 50%;
+        background-color: var(--accent-color);
+        bottom: -5px;
+        left: 0;
+        border-radius: 50px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover:after {
+        transform: scaleX(1);
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+    .nav-link {
+        color: var(--secondary-color);
+        font-weight: 600;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        position: relative;
+    }
+    
+    .nav-link:hover {
+        color: var(--text-color);
+        background-color: var(--light-gray);
+    }
+    
+    .nav-link:after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 0;
+        background-color: var(--accent-color);
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+        border-radius: 50px;
+    }
+    
+    .nav-link:hover:after {
+        width: 50%;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 4rem 1rem;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-dusty-blue) 100%);
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 10% 30%, var(--accent-sage) 0%, transparent 60%);
+        opacity: 0.4;
+    }
+    
+    .hero:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 90% 70%, var(--accent-terracotta) 0%, transparent 60%);
+        opacity: 0.4;
+    }
+    
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .hero-photo {
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        background-color: var(--white);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-photo:after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, var(--accent-color), var(--accent-terracotta), var(--accent-lavender), var(--accent-sage));
+        z-index: -1;
+        opacity: 0.7;
+    }
+    
+    .hero-text {
+        flex: 1;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+        max-width: 600px;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-cta {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(173, 157, 143, 0.25);
+        border: 2px solid var(--white);
+    }
+    
+    .hero-cta:hover {
+        background-color: var(--accent-secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(173, 157, 143, 0.3);
+    }
+    
+    /* Projects Section - NOW with the lavender/green background */
+    .projects {
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, rgba(180, 170, 190, 0.4) 0%, rgba(165, 177, 170, 0.4) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .projects:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 75% 25%, rgba(217, 192, 182, 0.4) 0%, transparent 50%);
+    }
+    
+    .projects:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 15% 75%, rgba(150, 175, 155, 0.4) 0%, transparent 50%);
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 2.5rem;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .section-title:after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 90%;
+        background: linear-gradient(to right, var(--accent-terracotta), var(--accent-color), var(--accent-sage));
+        bottom: -10px;
+        left: 5%;
+        border-radius: 50px;
+    }
+    
+    .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .project-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: 4px solid;
+    }
+    
+    .projects .project-card:nth-child(1) {
+        border-color: var(--accent-terracotta);
+    }
+    
+    .projects .project-card:nth-child(2) {
+        border-color: var(--accent-color);
+    }
+    
+    .projects .project-card:nth-child(3) {
+        border-color: var(--accent-sage);
+    }
+    
+    .project-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-img {
+        transform: scale(1.05);
+    }
+    
+    .project-info {
+        padding: 1.5rem;
+    }
+    
+    .project-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+    }
+    
+    .project-description {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .projects .project-tag {
+        background-color: rgba(188, 143, 143, 0.2);
+        border-color: rgba(188, 143, 143, 0.6);
+        color: rgba(70, 40, 40, 1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid;
+    }
+    
+    .projects .project-tag:nth-child(1) {
+        background-color: rgba(188, 143, 143, 0.2);
+        border-color: rgba(188, 143, 143, 0.6);
+        color: rgba(70, 40, 40, 1);
+    }
+    
+    .projects .project-tag:nth-child(2) {
+        background-color: rgba(217, 192, 182, 0.2);
+        border-color: rgba(217, 192, 182, 0.6);
+        color: rgba(70, 55, 50, 1);
+    }
+    
+    .projects .project-tag:nth-child(3) {
+        background-color: rgba(150, 175, 155, 0.2);
+        border-color: rgba(150, 175, 155, 0.6);
+        color: rgba(40, 65, 45, 1);
+    }
+    
+    .projects .project-link {
+        background-color: rgba(217, 192, 182, 0.2);
+        color: rgba(70, 55, 50, 1);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    
+    .projects .project-link:hover {
+        background-color: rgba(217, 192, 182, 0.4);
+        transform: translateY(-2px);
+    }
+    
+    .project-links {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    /* Additional Projects Section - NOW with the beige background */
+    .additional-projects {
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, rgba(225, 215, 185, 0.7) 0%, rgba(215, 200, 165, 0.7) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .additional-projects:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 25% 25%, rgba(237, 216, 208, 0.5) 0%, transparent 50%);
+    }
+    
+    .additional-projects:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 85% 75%, rgba(223, 211, 203, 0.5) 0%, transparent 50%);
+    }
+    
+    .additional-projects .section-title:after {
+        background: linear-gradient(to right, var(--accent-lavender), var(--accent-secondary), var(--accent-sage));
+    }
+    
+    .additional-projects .project-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: 4px solid;
+    }
+    
+    /* Specific border colors for each project card */
+    #additional-projects .project-card:nth-child(1) {
+        border-color: var(--accent-terracotta);
+    }
+    
+    #additional-projects .project-card:nth-child(2) {
+        border-color: var(--accent-color);
+    }
+    
+    #additional-projects .project-card:nth-child(3) {
+        border-color: var(--accent-sage);
+    }
+    
+    #additional-projects .project-card:nth-child(4) {
+        border-color: var(--accent-lavender);
+    }
+    
+    #additional-projects .project-card:nth-child(5) {
+        border-color: var(--accent-mustard);
+    }
+    
+    #additional-projects .project-card:nth-child(6) {
+        border-color: var(--accent-dusty-blue);
+    }
+    
+    #additional-projects .project-card:nth-child(7) {
+        border-color: var(--accent-terracotta);
+    }
+    
+    #additional-projects .project-card:nth-child(8) {
+        border-color: var(--accent-color);
+    }
+    
+    #additional-projects .project-card:nth-child(9) {
+        border-color: var(--accent-sage);
+    }
+    
+    #additional-projects .project-card:nth-child(10) {
+        border-color: var(--accent-lavender);
+    }
+    
+    #additional-projects .project-card:nth-child(11) {
+        border-color: var(--accent-mustard);
+    }
+    
+    #additional-projects .project-card:nth-child(12) {
+        border-color: var(--accent-dusty-blue);
+    }
+    
+    .additional-projects .project-tag {
+        background-color: var(--light-gray);
+        color: rgba(70, 65, 60, 1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid var(--accent-color);
+    }
+    
+    .additional-projects .project-tag:nth-child(1) {
+        background-color: rgba(217, 192, 182, 0.7);
+        border-color: var(--accent-color);
+    }
+    
+    .additional-projects .project-tag:nth-child(2) {
+        background-color: rgba(150, 175, 155, 0.7);
+        border-color: var(--accent-sage);
+    }
+    
+    .additional-projects .project-tag:nth-child(3) {
+        background-color: rgba(180, 170, 190, 0.7);
+        border-color: var(--accent-lavender);
+    }
+    
+    .additional-projects .project-link {
+        color: rgba(70, 65, 60, 1);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background-color: var(--light-gray);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    
+    .additional-projects .project-link:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+    }
+    
+    /* About Section */
+    .about {
+        padding: 4rem 1rem;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-secondary) 100%);
+        position: relative;
+        overflow: hidden;
+        color: var(--white);
+    }
+    
+    .about:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60%;
+        background: linear-gradient(135deg, var(--accent-color) 0%, transparent 80%);
+        opacity: 0.2;
+        border-radius: 50%;
+        transform: scale(1.5) translateY(30%);
+    }
+    
+    .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .about-content {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-name {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--white);
+    }
+    
+    .about-bio {
+        margin-bottom: 1.5rem;
+        color: var(--light-gray);
+    }
+    
+    .about-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-color);
+        font-weight: 600;
+        background-color: var(--white);
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .contact-link:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        color: var(--white);
+    }
+    
+    /* Footer */
+    footer {
+        padding: 2rem 1rem;
+        background: linear-gradient(to right, rgba(220, 210, 205, 0.9) 0%, rgba(165, 177, 170, 0.9) 100%);
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    footer:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 15% 50%, var(--accent-lavender) 0%, transparent 50%);
+        opacity: 0.2;
+    }
+    
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .social-link {
+        color: var(--white);
+        font-size: 1.25rem;
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    
+    .social-link:hover {
+        color: var(--text-color);
+        background-color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+    
+    .footer-text {
+        font-size: 0.85rem;
+        color: var(--light-gray);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .hero-content {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .about-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .about-contact {
+            justify-content: center;
+        }
+    }
+    
+    </style>
+</head>
+
+
+
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+    <div class="logo">A Data Raconteur</div>
+    <nav class="nav-menu">
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#me" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section id="me" class="hero">
+<div class="hero-container">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">Telling stories with data</h1>
+            <p class="hero-subtitle">Yushuo is currently a graduate student in Data Journalism at Columbia Journalism School. 
+                Born in Beijing, China, she started as a student journalist since high school and minored in Journalism and Statistics while serving as a staff writer for her undergraduate newspaper.
+                Beyond traditional journalism writing, she is a big fan of magazine or feature writing. 
+                You would be amazed at her enthusiasm for bitter matcha ice cream and raw, sour fruits. 
+                In her spare time, you can find her playing badminton, watching live band shows and scribbling notes on her phone for her public, Substack-like WeChat account.</p>
+        </div>
+        <img src="self_image.jpg" alt="Profile Photo" class="hero-photo">
+    </div>
+</div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+<div class="projects-container">
+    <h2 class="section-title">Data Projects</h2>
+    <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <img src="disney.svg" alt="Project Image" class="project-img">
+            <div class="project-info">
+                <h3 class="project-title">The Pulitzer Chronicle</h3>
+                <p class="project-description">Documenting Pulitzer Winning International Reporting since 2014.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Python-Pandas</span>
+                    <span class="project-tag">Word Cloud</span>
+                    <span class="project-tag">Responsive Page</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://shuoshuobar.github.io/pulitzer-prize/" target="_blank" class="project-link">
+                        <i class="fas fa-book-open"></i> Read Story
+                    </a>
+                    <a href="https://github.com/shuoshuobar/pulitzer-prize" target="_blank" class="project-link">
+                        <i class="fas fa-code"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="treemap.svg" alt="Project Image" class="project-img">
+            <div class="project-info">
+                <h3 class="project-title">Pulled off Bookshelves: the Sweeping Book Removal Wave</h3>
+                <p class="project-description">A data-driven story analyzing the situation of book ban across the United States.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Python-Pandas</span>
+                    <span class="project-tag">Treemap</span>
+                    <span class="project-tag">Scrollytelling</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://shuoshuobar.github.io/the-sweeping-book-removal-wave/" target="_blank" class="project-link">
+                        <i class="fas fa-book-open"></i> Read Story
+                    </a>
+                    <a href="https://github.com/shuoshuobar/the-sweeping-book-removal-wave" target="_blank" class="project-link">
+                        <i class="fas fa-code"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+            <img src="fantuanlogo.jpg" alt="Project Image" class="project-img">
+            <div class="project-info">
+                <h3 class="project-title">Scraping Fantuan Delivery App</h3>
+                <p class="project-description">An interactive restaurant navigator of the Fantuan Delivery App.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Web-Scraping-Playwright</span>
+                    <span class="project-tag">Playwright</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://final-project-m6rs.onrender.com/fantuan" target="_blank" class="project-link">
+                        <i class="fas fa-book-open"></i> Read Story
+                    </a>
+                    <a href="https://github.com/shuoshuobar/Scraping_Fantuan_Delivery_App" target="_blank" class="project-link">
+                        <i class="fas fa-code"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Writing Projects -->
+<section id="additional-projects" class="additional-projects">
+    <div class="projects-container">
+        <h2 class="section-title">Writing Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="Drug.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://theuptowner.org/despite-legal-and-economic-hurdles-first-legal-cannabis-dispensaries-open-in-inwood-and-washington-heights/" target="_blank" style="color: var(--primary-color);">
+                            Despite Legal and Economic Hurdles, First Legal Cannabis Dispensaries Open in Inwood and Washington Heights
+                        </a>
+                    </h3>
+                    <p class="project-description">After banking difficulties, state delays and lawsuits, Happy Munkey and Sparkboro have opened for business.</p>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="Vote.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://theuptowner.org/cb12-opposes-the-closure-of-the-inpatient-rehabilitation-unit-at-newyork-presbyterian-hospital/" target="_blank" style="color: var(--primary-color);">
+                            CB12 Opposes Closure of Inpatient Rehabilitation Unit at NewYork-Presbyterian Hospital
+                        </a>
+                    </h3>
+                    <p class="project-description">Community board votes no on plans to convert rehab unit to medical-surgical beds.</p>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="heritage.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://theuptowner.org/inwood-sacred-site-to-honor-historic-african-american-burial-ground/" target="_blank" style="color: var(--primary-color);">
+                            Inwood Sacred Site to Honor Historic African American Burial Ground
+                        </a>
+                    </h3>
+                    <p class="project-description">Construction on 212th Street near Tenth Avenue will lead to a memorial attached to a shelter for the homeless.</p>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <img src="county.png" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/18265/news/a-look-at-voter-turnout-in-forsyth-county/" target="_blank" style="color: var(--primary-color);">
+                            A look at voter turnout in Forsyth County
+                        </a>
+                    </h3>
+                    <p class="project-description">The voter turnout in Forsyth County was slightly below the statewide average, but some of those that did vote shared what drove them to the polls.</p>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <img src="One-man Show.png" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/18037/features/visit-the-one-man-show-at-murphys-lunch/" target="_blank" style="color: var(--primary-color);">
+                            Visit the ‘one-man show’ at Murphy’s Lunch
+                        </a>
+                    </h3>
+                    <p class="project-description">Located in Downtown Winston-Salem, this diner is 72 years old and is now fully operated by one man.</p>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <img src="vending machine.jpeg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/17732/news/they-dont-deserve-to-die-the-downtown-naloxone-vending-machine-and-harm-reduction-in-winston-salem/" target="_blank" style="color: var(--primary-color);">
+                            “They don’t deserve to die:” The downtown naloxone vending machine and harm reduction in Winston-Salem
+                        </a>
+                    </h3>
+                    <p class="project-description">The machine is part of a larger plan to reduce the number of overdose deaths in Forsyth County.</p>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card">
+                <img src="Chen.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/17658/features/profiles/deacon-profile-boxi-chen/" target="_blank" style="color: var(--primary-color);">
+                            Deacon Profile: Boxi Chen
+                        </a>
+                    </h3>
+                    <p class="project-description">The finance and statistics double major has released over 30 songs.</p>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card">
+                <img src="friend.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/15120/arts-and-culture/international-student-struggles-with-identity/" target="_blank" style="color: var(--primary-color);">
+                            College transition strains old relationships
+                        </a>
+                    </h3>
+                    <p class="project-description">Maintaining friendships proves especially complex for international students.</p>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card">
+                <img src="Name.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/15120/arts-and-culture/international-student-struggles-with-identity/" target="_blank" style="color: var(--primary-color);">
+                            International student struggles with identity
+                        </a>
+                    </h3>
+                    <p class="project-description">Code switching – especially when it comes to names – in the international student community causes internal dilemmas.</p>
+                </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card">
+                <img src="Wake Forest.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/14623/arts-and-culture/international-student-voices-concerns/" target="_blank" style="color: var(--primary-color);">
+                            International student voices concerns
+                        </a>
+                    </h3>
+                    <p class="project-description">New COVID-19 restrictions put international students into a difficult position.</p>
+                </div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="project-card">
+                <img src="workload.jpeg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/14318/arts-and-culture/dealing-with-academic-frustration-at-work-forest/" target="_blank" style="color: var(--primary-color);">
+                            Dealing with academic frustration at “Work Forest”
+                        </a>
+                    </h3>
+                    <p class="project-description">Unpacking the struggles of class, assignments, due dates and campus life.</p>
+                </div>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="project-card">
+                <img src="me.jpg" alt="Project Image" class="project-img">
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="https://wfuogb.com/13692/arts-and-culture/life-through-the-lens-yushuo-wang/" target="_blank" style="color: var(--primary-color);">
+                            Life through the lens: Yushuo Wang
+                        </a>
+                    </h3>
+                    <p class="project-description">The machine is part of a larger plan to reduce the number of overdose deaths in Forsyth County.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer with Contact Section -->
+<footer id="contact">
+    <div class="footer-container">
+        <h2 class="section-title" style="color: var(--white); left: 0; transform: none; text-align: center; width: 100%; margin-bottom: 2rem;">Contact</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <div class="about-contact">
+                    <a href="mailto:yw4359@columbia.edu" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/yushuo-jiang-052a35249/" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/shuoshuobar" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
